@@ -1,0 +1,18 @@
+[package]
+name = "jq-src"
+version = "0.1.0"
+license = "Apache-2.0/MIT"
+authors = ["Owen Nelson <onelson@gmail.com>"]
+description = "Compile and link libjq from source."
+homepage = "https://github.com/onelson/jq-src"
+repository = "https://github.com/onelson/jq-src"
+categories = []
+keywords = ["json", "jq"]
+readme = "README.md"
+
+build = "build.rs"
+type = "staticlib"
+links = "jq"
+
+[build-dependencies]
+autotools = "0.1.3"
