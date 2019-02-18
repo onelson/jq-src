@@ -64,6 +64,10 @@ impl Build {
         let build_dir = out_dir.join("build");
         let inner_dir = build_dir.join("src");
 
+        if inner_dir.exists() {
+            fs::remove_dir_all(&inner_dir).unwrap();
+        }
+        
         fs::create_dir_all(&inner_dir).unwrap();
         cp_r(&source_dir(), &inner_dir);
 
