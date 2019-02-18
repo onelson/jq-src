@@ -1,0 +1,10 @@
+[package]
+name = "testcrate"
+version = "0.1.0"
+authors = ["Owen Nelson <onelson@gmail.com>"]
+links = "jq"
+build = "build.rs"
+
+
+[build-dependencies]
+jq-src = { path = ".." }

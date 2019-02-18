@@ -1,7 +1,17 @@
 # jq-src
 
-This rust crate will compile and statically link `libjq` provided by the [jq]
+This rust crate provides an api to compile `libjq` provided by the [jq]
 **1.6** release.
+
+The primary consumer of this crate is [jq-sys] which depends on this crate
+when the `bundled` feature is enabled.
+
+Setting `JQ_NO_STATIC` will build a shared lib instead of static (the default).
+This is probably ill-advised since you'd then have to go out of your way to
+ensure you retain the `libjq` build results and install them on your system
+so they can be found at runtime. Still, the variable is there if you feel the
+need to set it.
+
 As per the [jq] readme, the library is compiled using the built-in [oniguruma]
 library for regex support.
 
@@ -23,3 +33,4 @@ were not initialized.
 [jq]: https://github.com/stedolan/jq
 [crates.io]: https://crates.io/
 [oniguruma]: https://github.com/kkos/oniguruma/
+[jq-sys]: https://github.com/onelson/jq-sys

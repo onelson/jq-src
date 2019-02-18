@@ -1,6 +1,6 @@
 [package]
 name = "jq-src"
-version = "0.1.0"
+version = "0.2.0"
 license = "Apache-2.0/MIT"
 authors = ["Owen Nelson <onelson@gmail.com>"]
 description = "Compile and link libjq from source."
@@ -10,9 +10,8 @@ categories = []
 keywords = ["json", "jq"]
 readme = "README.md"
 
-build = "build.rs"
-type = "staticlib"
-links = "jq"
-
-[build-dependencies]
+[dependencies]
 autotools = "0.1.3"
+
+[workspace]
+members = ['testcrate']
