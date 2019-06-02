@@ -36,6 +36,10 @@ were not initialized.
 
 ## Changelog
 
+### v0.3.1 (2019-06-01)
+
+- Downgrade to `autotools` 0.1 (newer versions cause breakage in jq build).
+
 ### v0.3.0 (2019-06-01)
 
 - Removed `Artifacts::print_cargo_metadata()`, which was largely duplicate of
