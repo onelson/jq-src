@@ -1,7 +1,11 @@
 # jq-src
 
+[![crates.io](https://img.shields.io/crates/v/jq-src.svg)](https://crates.io/crates/jq-src) 
+[![crates.io](https://img.shields.io/crates/d/jq-src.svg)](https://crates.io/crates/jq-src)
+[![docs.rs](https://docs.rs/jq-src/badge.svg)](https://docs.rs/jq-src)
+
 This rust crate provides an api to compile `libjq` provided by the [jq]
-**1.6** release.
+**1.6** release. Other versions of jq _may work_ but haven't been tested.
 
 The primary consumer of this crate is [jq-sys] which depends on this crate
 when the `bundled` feature is enabled.
@@ -29,6 +33,26 @@ $ git submodule update --init --recursive
 
 If building this crate fails because of missing files, it's likely the submodules
 were not initialized.
+
+## Changelog
+
+### v0.3.0 (2019-06-01)
+
+- Removed `Artifacts::print_cargo_metadata()`, which was largely duplicate of
+  `Artifacts::print_link_info()` (somehow I wrote this method twice).
+- Added some docs.
+
+### v0.2.0 (2019-02-18)
+
+- No longer build/link in `build.rs` - add wrapper API so [jq-sys] can do it
+  itself.
+- Try improve build script reliability by cleaning jq src dir prior to each 
+  run (if it exists).
+
+### v0.1.0 (2019-01-12)
+
+Initial release.
+
 
 [jq]: https://github.com/stedolan/jq
 [crates.io]: https://crates.io/
