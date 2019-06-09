@@ -11,7 +11,7 @@ keywords = ["json", "jq"]
 readme = "README.md"
 
 [dependencies]
-autotools = "0.1"
+autotools = "0.2"
 
 [workspace]
 members = ['testcrate']
