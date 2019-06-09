@@ -36,6 +36,12 @@ were not initialized.
 
 ## Changelog
 
+### (Unreleased)
+
+- Upgrade to `autotools` 0.2, updating the usages to be compatible with the new public
+  api.
+- Fixes issue where the autotools build can intermittently fail (#1).
+
 ### v0.3.1 (2019-06-01)
 
 - Downgrade to `autotools` 0.1 (newer versions cause breakage in jq build).
