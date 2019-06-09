@@ -1,6 +1,6 @@
 # jq-src
 
-[![crates.io](https://img.shields.io/crates/v/jq-src.svg)](https://crates.io/crates/jq-src) 
+[![crates.io](https://img.shields.io/crates/v/jq-src.svg)](https://crates.io/crates/jq-src)
 [![crates.io](https://img.shields.io/crates/d/jq-src.svg)](https://crates.io/crates/jq-src)
 [![docs.rs](https://docs.rs/jq-src/badge.svg)](https://docs.rs/jq-src)
 
@@ -19,12 +19,12 @@ need to set it.
 As per the [jq] readme, the library is compiled using the built-in [oniguruma]
 library for regex support.
 
-For this to succeed, you will have to have autotools (`autoreconf`, `make`, 
+For this to succeed, you will have to have autotools (`autoreconf`, `make`,
 etc) and a gcc toolchain in your `PATH`.
 
 Note that the jq sources are provided as git submodules. These will be fetched
 automatically when installing this crate from [crates.io] or using a git dependency,
-however if you want to hack on the crate locally, or list it as a path dependency, 
+however if you want to hack on the crate locally, or list it as a path dependency,
 you'll have to fetch the submodules yourself, for example:
 
 ```
@@ -36,11 +36,12 @@ were not initialized.
 
 ## Changelog
 
-### (Unreleased)
+### v0.4.0 (2019-06-09)
 
-- Upgrade to `autotools` 0.2, updating the usages to be compatible with the new public
-  api.
-- Fixes issue where the autotools build can intermittently fail (#1).
+- Upgrade to `autotools` 0.2, updating the usages to be compatible with the
+  new public api.
+- (Hopefully) Fixes issue where the autotools build can intermittently fail
+  ([#1]).
 
 ### v0.3.1 (2019-06-01)
 
@@ -56,7 +57,7 @@ were not initialized.
 
 - No longer build/link in `build.rs` - add wrapper API so [jq-sys] can do it
   itself.
-- Try improve build script reliability by cleaning jq src dir prior to each 
+- Try improve build script reliability by cleaning jq src dir prior to each
   run (if it exists).
 
 ### v0.1.0 (2019-01-12)
@@ -68,3 +69,4 @@ Initial release.
 [crates.io]: https://crates.io/
 [oniguruma]: https://github.com/kkos/oniguruma/
 [jq-sys]: https://github.com/onelson/jq-sys
+[#1]: https://github.com/onelson/jq-src/issues/1
