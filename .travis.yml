@@ -16,5 +16,12 @@ before_script:
 script:
   - cargo fmt -- --check
   - cargo build -p testcrate
+  - git submodule update --init --recursive
+  - git clone https://github.com/onelson/jq-sys.git ../_jq-sys
+  - mkdir ../.cargo
+  - echo "paths = [\"$PWD\"]" > ../.cargo/config
+  - cd ../_jq-sys
+  - cargo test --features bundled
+
 notifications:
   email: false
