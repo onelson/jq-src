@@ -36,6 +36,10 @@ were not initialized.
 
 ## Changelog
 
+### (Unreleased)
+
+- Fixes issue where dependent crates can fail to build while linking on some systems ([#3]).
+
 ### v0.4.0 (2019-06-09)
 
 - Upgrade to `autotools` 0.2, updating the usages to be compatible with the
@@ -70,3 +74,4 @@ Initial release.
 [oniguruma]: https://github.com/kkos/oniguruma/
 [jq-sys]: https://github.com/onelson/jq-sys
 [#1]: https://github.com/onelson/jq-src/issues/1
+[#3]: https://github.com/onelson/jq-src/issues/3
