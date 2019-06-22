@@ -13,8 +13,17 @@ before_script:
   - echo "$TRAVIS_RUST_VERSION" > rust-toolchain
   - rustup component add rustfmt
   - rustup show
+  # prep a clone of jq-sys so we can do a faux integration test against it.
+  - git clone https://github.com/onelson/jq-sys.git ../_jq-sys
+  - git submodule update --init --recursive
+  - mkdir ../.cargo
+  - echo "paths = [\"$PWD\"]" > ../.cargo/config
 script:
   - cargo fmt -- --check
+  # basic build check
   - cargo build -p testcrate
+  # "integration test"
+  - cd ../_jq-sys
+  - cargo test --features bundled
 notifications:
   email: false
