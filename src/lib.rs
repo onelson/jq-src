@@ -98,7 +98,7 @@ fn run_autotools(out_dir: &Path) -> Result<Artifacts, ()> {
                 .out_dir(&out)
                 .disable("maintainer-mode", None)
                 .with("oniguruma", Some("builtin"))
-                .make_args(vec!["LDFLAGS=-all-static".into()])
+                .make_args(vec!["LDFLAGS=-all-static".into(), "CFLAGS=-fPIC".into()])
                 .build();
         })
     };
