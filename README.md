@@ -36,7 +36,7 @@ were not initialized.
 
 ## Changelog
 
-### (Unreleased)
+### v0.4.1 (2019-06-22)
 
 - Fixes issue where dependent crates can fail to build while linking on some systems ([#3]).
 
