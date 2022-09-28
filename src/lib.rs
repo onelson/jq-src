@@ -86,6 +86,18 @@ fn run_autotools(out_dir: &Path) -> Result<Artifacts, ()> {
     // basically just a recursive copy, with some cleanup.
     prepare_sources(&modules_dir, &sources_dir);
 
+    // Making jq with maintainer mode disabled stubs the YACC and LEX steps, but
+    // the build system gets confused when the files are not generated, leading
+    // to errors about missing files.
+    //
+    // Make sure modification time of generated .c files are higher so we never
+    // hit the stubs in the first place.
+    let touch = |path| {
+        fs::copy(modules_dir.join(path), sources_dir.join(path)).unwrap();
+    };
+    touch("jq/src/parser.c");
+    touch("jq/src/lexer.c");
+
     // The `autotools` crate will panic when a command fails, so in order
     // to add a retry behavior we need to put it on a separate thread.
     let worker = {
